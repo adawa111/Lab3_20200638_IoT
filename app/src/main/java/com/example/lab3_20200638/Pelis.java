@@ -5,19 +5,17 @@ import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkCapabilities;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
+import java.util.List;
 
 public class Pelis extends AppCompatActivity {
 
@@ -30,7 +28,16 @@ public class Pelis extends AppCompatActivity {
     private EditText attr4get;
     private EditText attr5get;
 
-    ApiService typicodeService;
+    private TextView namefilm;
+
+    private TextView textplot;
+    private TextView imdratget;
+
+    private TextView finalscoreget;
+
+
+    TypicodeService typicodeService;
+
     @Override
     public void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
@@ -41,13 +48,49 @@ public class Pelis extends AppCompatActivity {
        /* attr1 = findViewById(R.id.attr1);*/
 
         // Obtener el texto enviado desde MainActivity
-        String searchText = getIntent().getStringExtra("searchText");
-        String apikey= getIntent().getStringExtra("apikey");
+        /*String searchText = getIntent().getStringExtra("searchText");
+        String apikey= getIntent().getStringExtra("apikey");*/
 
         // Aquí puedes hacer la petición a la API con el texto obtenido y mostrar la información
         // Por ahora, mostraremos el texto ingresado en un TextView
         /*attr1.setText("Texto ingresado: " + searchText);*/
+        Peliculas movie = (Peliculas) getIntent().getSerializableExtra("peli");
+        TextView tomatoesget2;
 
+        Log.d("serialno","TITULO:  "+movie.getTitle());
+        attr1get = findViewById(R.id.attr1get);
+        Log.d("serialno","ATTR1GET");
+        attr2get = findViewById(R.id.attr2get);
+        Log.d("serialno","ATTR2GET");
+        attr3get = findViewById(R.id.attr3get);
+        Log.d("serialno","ATTR3GET");
+        attr4get = findViewById(R.id.attr4get);
+        Log.d("serialno","ATTR4GET");
+        attr5get = findViewById(R.id.attr5get);
+        Log.d("serialno","ATTR5GET");
+        namefilm = findViewById(R.id.namefilm);
+        Log.d("serialno","NAMEFILM");
+        textplot = findViewById(R.id.textplot);
+        Log.d("serialno","TEXTPLOT");
+        imdratget = findViewById(R.id.imdratget);
+        Log.d("serialno","IMDRATGET");
+        TextView tomatoesget3 = findViewById(R.id.tomatoesget2);
+        Log.d("serialno","TOMATOESGET");
+        finalscoreget = findViewById(R.id.finalscoreget);
+        Log.d("serialno","FINALSCOREGET");
+
+        attr1get.setText(movie.getDirector());
+        attr2get.setText(movie.getActors());
+        attr3get.setText(movie.getReleased());
+        attr4get.setText(movie.getGenre());
+        attr5get.setText(movie.getWriter());
+
+        namefilm.setText(movie.getTitle());
+        textplot.setText(movie.getPlot());
+        List<Ratings> listaratings = movie.getRatings();
+        imdratget.setText(listaratings.get(0).getValue());
+        tomatoesget3.setText(listaratings.get(1).getValue());
+        finalscoreget.setText(listaratings.get(2).getValue());
 
 
     }
@@ -60,6 +103,19 @@ public class Pelis extends AppCompatActivity {
 
     private void showToast(String message) {
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
+    }
+
+    private Button regresar;
+    private CheckBox checkBox;
+    public void enabledBack(View view){
+        regresar = findViewById(R.id.regresar);
+        checkBox = findViewById(R.id.checkBox);
+        if (checkBox.isChecked()){
+            regresar.setEnabled(true);
+        }else {
+            regresar.setEnabled(false);
+        }
+
     }
 
 
@@ -81,35 +137,4 @@ public class Pelis extends AppCompatActivity {
         return false;
     }/* ayuda IA*/
 
-    public void pedir(String searchText, String apikey){
-        typicodeService = new Retrofit.Builder()
-                .baseUrl("https://www.omdbapi.com/")
-                .addConverterFactory(GsonConverterFactory.create())
-                .build()
-                .create(ApiService.class);
-
-        typicodeService.obtenerPeliculas(searchText, apikey).enqueue(new Callback<Peliculas>() {
-            @Override
-            public void onResponse(@NonNull Call<Peliculas> call, @NonNull Response<Peliculas> response) {
-                if (response.isSuccessful()) {
-                    Peliculas peli = response.body();
-
-                    if (peli != null) {
-                        // Aquí puedes asignar los valores a tus EditText o TextView
-                        attr1get.setText(peli.getTitle()); // Suponiendo que Peliculas tiene un método getTitle()
-                    } else {
-                        showToast("No se encontró la película");
-                    }
-                } else {
-                    showToast("Error al obtener datos");
-                }
-            }
-
-
-            @Override
-            public void onFailure(@NonNull Call<Peliculas> call, Throwable t) {
-                showToast("Error: " + t.getLocalizedMessage());
-            }
-        });
-    }
 }

@@ -2,27 +2,29 @@ package com.example.lab3_20200638;
 
 import com.google.gson.annotations.SerializedName;
 
-public class Ratings {
+import java.io.Serializable;
 
-    @SerializedName("Source")
-    private String source;
+public class Ratings implements Serializable {
 
-    @SerializedName("Value")
-    private String value;
+
+    private String Source;
+
+
+    private String Value;
 
     public String getSource() {
-        return source;
+        return Source;
     }
 
     public void setSource(String source) {
-        this.source = source;
+        Source = source;
     }
 
     public String getValue() {
-        return value;
+        return Value;
     }
 
     public void setValue(String value) {
-        this.value = value;
+        Value = value;
     }
 }

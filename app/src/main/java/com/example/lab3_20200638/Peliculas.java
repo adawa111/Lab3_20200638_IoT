@@ -4,253 +4,265 @@ import com.google.gson.annotations.SerializedName;
 
 import org.w3c.dom.Text;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class Peliculas {
+public class Peliculas  implements Serializable {
 
-    @SerializedName("Title")
-    private String title;
-    @SerializedName("Year")
-    private String year;
-    @SerializedName("Rated")
-    private String rated;
-    @SerializedName("Released")
-    private String released;
-    @SerializedName("Runtime")
-    private String runtime;
-    @SerializedName("Genre")
-    private String genre;
-    @SerializedName("Director")
-    private String director;
-    @SerializedName("Actors")
-    private String actors;
-    @SerializedName("Plot")
-    private Text plot;
 
-    @SerializedName("Language")
-    private String language;
+    private String Title;
 
-    @SerializedName("Country")
-    private String country;
+    private String Year;
+    private String Rated;
 
-    @SerializedName("Awards")
-    private String awards;
-    @SerializedName("Poster")
-    private String  poster;
+    private String Released;
 
-    @SerializedName("Ratings")
-    private List<Ratings> ratings;
+    private String Runtime;
 
-    @SerializedName("Metascore")
-    private String metascore;
-    @SerializedName("imdbRating")
-    private String imdbrating;
-    @SerializedName("imdbVotes")
-    private String imdbvotes;
-    @SerializedName("imdbID")
-    private String imdbid;
-    @SerializedName("Type")
-    private String type;
-    @SerializedName("DVD")
-    private String dvd;
-    @SerializedName("BoxOffice")
-    private String boxoffice;
-    @SerializedName("Production")
-    private String production;
-    @SerializedName("Website")
-    private String website;
-    @SerializedName("Response")
-    private String response;
+    private String Genre;
+
+    private String Director;
+
+
+    private String Writer;
+
+
+    private String Actors;
+
+    private String Plot;
+
+
+    private String Language;
+
+
+    private String Country;
+
+
+    private String Awards;
+
+    private String Poster;
+
+
+    private List<Ratings> Ratings;
+
+
+    private String Metascore;
+
+    private String imdbRating;
+
+    private String imdbVotes;
+
+    private String imdbID;
+
+    private String Type;
+
+    private String DVD;
+
+    private String BoxOffice;
+
+    private String Production;
+
+    private String Website;
+
+    private String Response;
 
     public String getTitle() {
-        return title;
+        return Title;
     }
 
     public void setTitle(String title) {
-        this.title = title;
+        Title = title;
     }
 
     public String getYear() {
-        return year;
+        return Year;
     }
 
     public void setYear(String year) {
-        this.year = year;
+        Year = year;
     }
 
     public String getRated() {
-        return rated;
+        return Rated;
     }
 
     public void setRated(String rated) {
-        this.rated = rated;
+        Rated = rated;
     }
 
     public String getReleased() {
-        return released;
+        return Released;
     }
 
     public void setReleased(String released) {
-        this.released = released;
+        Released = released;
     }
 
     public String getRuntime() {
-        return runtime;
+        return Runtime;
     }
 
     public void setRuntime(String runtime) {
-        this.runtime = runtime;
+        Runtime = runtime;
     }
 
     public String getGenre() {
-        return genre;
+        return Genre;
     }
 
     public void setGenre(String genre) {
-        this.genre = genre;
+        Genre = genre;
     }
 
     public String getDirector() {
-        return director;
+        return Director;
     }
 
     public void setDirector(String director) {
-        this.director = director;
+        Director = director;
+    }
+
+    public String getWriter() {
+        return Writer;
+    }
+
+    public void setWriter(String writer) {
+        Writer = writer;
     }
 
     public String getActors() {
-        return actors;
+        return Actors;
     }
 
     public void setActors(String actors) {
-        this.actors = actors;
+        Actors = actors;
     }
 
-    public Text getPlot() {
-        return plot;
+    public String getPlot() {
+        return Plot;
     }
 
-    public void setPlot(Text plot) {
-        this.plot = plot;
+    public void setPlot(String plot) {
+        Plot = plot;
     }
 
     public String getLanguage() {
-        return language;
+        return Language;
     }
 
     public void setLanguage(String language) {
-        this.language = language;
+        Language = language;
     }
 
     public String getCountry() {
-        return country;
+        return Country;
     }
 
     public void setCountry(String country) {
-        this.country = country;
+        Country = country;
     }
 
     public String getAwards() {
-        return awards;
+        return Awards;
     }
 
     public void setAwards(String awards) {
-        this.awards = awards;
+        Awards = awards;
     }
 
     public String getPoster() {
-        return poster;
+        return Poster;
     }
 
     public void setPoster(String poster) {
-        this.poster = poster;
+        Poster = poster;
     }
 
-    public List<Ratings> getRatings() {
-        return ratings;
+    public List<com.example.lab3_20200638.Ratings> getRatings() {
+        return Ratings;
     }
 
-    public void setRatings(List<Ratings> ratings) {
-        this.ratings = ratings;
+    public void setRatings(List<com.example.lab3_20200638.Ratings> ratings) {
+        Ratings = ratings;
     }
 
     public String getMetascore() {
-        return metascore;
+        return Metascore;
     }
 
     public void setMetascore(String metascore) {
-        this.metascore = metascore;
+        Metascore = metascore;
     }
 
-    public String getImdbrating() {
-        return imdbrating;
+    public String getImdbRating() {
+        return imdbRating;
     }
 
-    public void setImdbrating(String imdbrating) {
-        this.imdbrating = imdbrating;
+    public void setImdbRating(String imdbRating) {
+        this.imdbRating = imdbRating;
     }
 
-    public String getImdbvotes() {
-        return imdbvotes;
+    public String getImdbVotes() {
+        return imdbVotes;
     }
 
-    public void setImdbvotes(String imdbvotes) {
-        this.imdbvotes = imdbvotes;
+    public void setImdbVotes(String imdbVotes) {
+        this.imdbVotes = imdbVotes;
     }
 
-    public String getImdbid() {
-        return imdbid;
+    public String getImdbID() {
+        return imdbID;
     }
 
-    public void setImdbid(String imdbid) {
-        this.imdbid = imdbid;
+    public void setImdbID(String imdbID) {
+        this.imdbID = imdbID;
     }
 
     public String getType() {
-        return type;
+        return Type;
     }
 
     public void setType(String type) {
-        this.type = type;
+        Type = type;
     }
 
-    public String getDvd() {
-        return dvd;
+    public String getDVD() {
+        return DVD;
     }
 
-    public void setDvd(String dvd) {
-        this.dvd = dvd;
+    public void setDVD(String DVD) {
+        this.DVD = DVD;
     }
 
-    public String getBoxoffice() {
-        return boxoffice;
+    public String getBoxOffice() {
+        return BoxOffice;
     }
 
-    public void setBoxoffice(String boxoffice) {
-        this.boxoffice = boxoffice;
+    public void setBoxOffice(String boxOffice) {
+        BoxOffice = boxOffice;
     }
 
     public String getProduction() {
-        return production;
+        return Production;
     }
 
     public void setProduction(String production) {
-        this.production = production;
+        Production = production;
     }
 
     public String getWebsite() {
-        return website;
+        return Website;
     }
 
     public void setWebsite(String website) {
-        this.website = website;
+        Website = website;
     }
 
     public String getResponse() {
-        return response;
+        return Response;
     }
 
     public void setResponse(String response) {
-        this.response = response;
+        Response = response;
     }
 }

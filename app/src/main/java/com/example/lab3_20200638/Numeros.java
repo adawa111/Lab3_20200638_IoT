@@ -2,14 +2,15 @@ package com.example.lab3_20200638;
 
 import com.google.gson.annotations.SerializedName;
 
-public class Numeros {
+import java.io.Serializable;
+
+public class Numeros implements Serializable {
 
 
-    @SerializedName("number")
     private int number;
 
 
-    @SerializedName("order")
+
     private int order;
 
     public int getNumber() {

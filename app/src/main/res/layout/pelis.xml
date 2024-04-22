@@ -183,14 +183,15 @@
             android:text="Trama de la Película" />
 
         <ScrollView
+            android:id="@+id/plotget"
             android:layout_width="187dp"
             android:layout_height="match_parent"
-            android:layout_weight="1">
+            android:layout_weight="1" >
 
             <TextView
-                android:id="@+id/plotget"
+                android:id="@+id/textplot"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:text="Aca va el plot de la pelicula ioandoandejaindalknaejidnaenaejidndjlandajiendaljdnaejidnaljdnaijdandjiaendaejindajldnajidnojaedndehiandlandjindlajkndjiaendaejkdneji" />
         </ScrollView>
     </LinearLayout>
@@ -210,7 +211,8 @@
             android:id="@+id/textView13"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Rating de la Película (Fuente/Valoración" />
+            android:text="Rating de la Película (Fuente/Valoración"
+            android:textAlignment="center" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -246,7 +248,7 @@
                 android:text="Rotten Tomatoes" />
 
             <TextView
-                android:id="@+id/tomatoesget"
+                android:id="@+id/tomatoesget2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -267,6 +269,8 @@
         android:id="@+id/checkBox"
         android:layout_width="224dp"
         android:layout_height="55dp"
+        android:checked="false"
+        android:onClick="enabledBack"
         android:text="Estas conforme con la información brindada"
         android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -280,6 +284,7 @@
         android:id="@+id/regresar"
         android:layout_width="113dp"
         android:layout_height="51dp"
+        android:enabled="false"
         android:onClick="iraMain"
         android:text="Regresar"
         app:layout_constraintBottom_toBottomOf="parent"
